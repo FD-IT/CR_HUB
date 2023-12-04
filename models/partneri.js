@@ -30,3 +30,27 @@ let partneri = [
     adresa: "Adresa kompanije 5",
   },
 ];
+
+
+function GetPartnerByName(nazivKompanije) {
+  // Provera da li je uneto ime kompanije
+  if (!nazivKompanije || typeof nazivKompanije !== "string") {
+    console.log("Morate uneti ispravno ime kompanije!");
+    return null;
+  }
+
+  let trazeniPartner = partneri.find((p) => p.nazivKompanije === nazivKompanije);
+
+  if (trazeniPartner) {
+    return trazeniPartner;
+  } else {
+    console.log("Ne postoji partner sa unetim imenom kompanije.");
+    return null;
+  }
+}
+
+// Testiranje funkcije
+//let partner = GetPartnerByName("Samsung");
+//console.log(partner);
+
+
