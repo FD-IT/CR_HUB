@@ -54,3 +54,22 @@ function GetPartnerByName(nazivKompanije) {
 //console.log(partner);
 
 
+//Funkcija za azuriranje partnera
+//Funkcija je testirana, nije moguce uneti prazno polje i podatak tipa string
+function UpdatePartnerInfo(partner) {
+  //Provera da li je unet ID i da li je on tipa broj
+  if (!partner.ID || typeof partner.ID !== "number") {
+    console.log("Morate uneti ispravan ID!");
+    return;
+  }
+  let trazeniPartner = partneri.find((p) => p.ID === partner.ID);
+
+  if (trazeniPartner) {
+    trazeniPartner.nazivKompanije = partner.nazivKompanije;
+    trazeniPartner.kontaktOsoba = partner.kontaktOsoba;
+    trazeniPartner.adresa = partner.adresa;
+    console.log("Informacije su uspesno ažurirane!");
+  } else {
+    console.log("Ne postoji takav partner");
+  }
+}
