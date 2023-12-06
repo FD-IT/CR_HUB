@@ -46,13 +46,13 @@ function GetPartnerByName(nazivKompanije) {
   } else {
     console.log("Ne postoji partner sa unetim imenom kompanije.");
     return null;
+    
   }
 }
 
 // Testiranje funkcije
 //let partner = GetPartnerByName("Samsung");
 //console.log(partner);
-
 
 //Funkcija za azuriranje partnera
 //Funkcija je testirana, nije moguce uneti prazno polje i podatak tipa string
