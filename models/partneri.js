@@ -37,6 +37,7 @@ function GetPartnerByName(nazivKompanije) {
   if (!nazivKompanije || typeof nazivKompanije !== "string") {
     console.log("Morate uneti ispravno ime kompanije!");
     return null;
+    
   }
 
   let trazeniPartner = partneri.find((p) => p.nazivKompanije === nazivKompanije);
