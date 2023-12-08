@@ -2,7 +2,10 @@ const mongoose = require("mongoose");
 
 const partnerSchema = new mongoose.Schema({
     //Dodavanje polja
-    naziv: String,
+    naziv: {
+        type : String,
+        required : true
+    },
     kontaktOsoba : String,
     kontaktMejl : String,
     kontaktTelefon: String
