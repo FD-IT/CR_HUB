@@ -10,4 +10,4 @@ app.get("/", (req, res) => {
 
 const partneriRouter = require("./routes/partneriRuter");
 
-app.use("/users",partneriRouter);
+app.use("/partneri",partneriRouter);
