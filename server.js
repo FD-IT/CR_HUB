@@ -8,6 +8,6 @@ app.get("/", (req, res) => {
   console.log("Server je uspesno pokrenut!");
 });
 
-const partneriRouter = require("./routes/partneriRuter");
+const partneriRouter = require("./routes/partneri");
 
 app.use("/partneri",partneriRouter);
