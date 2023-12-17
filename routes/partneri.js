@@ -20,8 +20,10 @@ router.patch("/:id", (req, res) => {
   console.log(`Zahtev za izmenu partnera ${partnerId} je primljen!`);
 });
 
+// DELETE /partneri
 router.delete("/:id", (req, res) => {
   res.send("Obrisi partnera sa ID-jem ${req.params.id}");
+});
 
 module.exports = router;
 
