@@ -13,5 +13,10 @@ router.post("/", (req, res) => {
     res.send("Kreiraj novog partnera")
 });
 
+// DELETE /partneri
+router.delete("/:id", (req, res) => {
+  res.send("Obrisi partnera sa ID-jem ${req.params.id}");
+});
+
 module.exports = router;
 
