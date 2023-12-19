@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../public/css/pocetna.css">
+</head>
+<body>
+    
+    <header>
+        <nav>
+            <ul id="hederUl">
+                <li id="hederLi"><a id="hederTekst" href="pocetna.html">Pocetna</a></li>
+                <li id="hederLi"><a id="hederTekst" href="dodajPartnera.html">Dodaj Partnera</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <br>
+    <form action="/partneri/dodajPartnera" method="post">
+      <label for="naziv">Naziv:</label>
+      <input type="text" id="naziv" name="naziv" required>
+      <br>
+      <label for="kontaktOsoba">Kontakt Osoba:</label>
+      <input type="text" id="kontaktOsoba" name="kontaktOsoba">
+      <br>
+      <label for="kontaktMejl">Kontakt Mejl:</label>
+      <input type="email" id="kontaktMejl" name="kontaktMejl">
+      <br>
+      <label for="kontaktTelefon">Kontakt Telefon:</label>
+      <input type="tel" id="kontaktTelefon" name="kontaktTelefon">
+      <br>
+      <button type="submit">Add Partner</button>
+    </form>
+</body>
+</html>

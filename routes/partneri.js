@@ -1,16 +1,39 @@
 const express = require("express");
+const mongoose = require("mongoose");
+const PartnerModel = require('../models/Partner');
 
 const router = express.Router();
 
+
 // GET /partneri
 router.get("/", (req, res) => {
-    res.send("Prikazi sve partnere");
-    console.log("Zahtev za prikazivanje svih partnera je primljen!");
-  });
+  PartnerModel.find().sort({ createdAt: -1 })
+    .then(result => {
+      res.render(result);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
 
+// GET /dodajPartnera
+router.get("/dodajPartnera", (req, res) => {
+  res.render('dodajPartnera');
+  console.log("Zahtev za prikazivanje svih partnera je primljen!");
+});
 // POST /partneri
-router.post("/", (req, res) => {
-    res.send("Kreiraj novog partnera")
+router.post('/dodajPartnera', async (req, res) => {
+
+  // Extract data from the form submissionx
+  // const { naziv, kontaktOsoba, kontaktMejl, kontaktTelefon } = req.body;
+
+  // Create a new partner object using the Mongoose model
+  const newPartner = new PartnerModel(req.body);
+
+  // Save the partner to the database
+  await newPartner.save();
+
+  res.redirect('/partneri'); // Redirect to the form or another page
 });
 
 // PATCH /partneri/:id
