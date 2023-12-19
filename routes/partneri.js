@@ -7,20 +7,16 @@ const router = express.Router();
 
 // GET /partneri
 router.get("/", (req, res) => {
-  PartnerModel.find().sort({ createdAt: -1 })
-    .then(result => {
-      res.render(result);
-    })
-    .catch(err => {
-      console.log(err);
-    });
-});
+    res.send("Prikazi sve partnere");
+    console.log("Zahtev za prikazivanje svih partnera je primljen!");
+  });
 
 // GET /dodajPartnera
 router.get("/dodajPartnera", (req, res) => {
   res.render('dodajPartnera');
   console.log("Zahtev za prikazivanje svih partnera je primljen!");
 });
+
 // POST /partneri
 router.post('/dodajPartnera', async (req, res) => {
 
