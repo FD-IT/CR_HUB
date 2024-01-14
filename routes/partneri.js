@@ -2,11 +2,12 @@ const express = require("express");
 
 const router = express.Router();
 
+const{
+  vratiSvePartnere
+} = require('../controller/partneri')
+
 // GET /partneri
-router.get("/", (req, res) => {
-    res.send("Prikazi sve partnere");
-    console.log("Zahtev za prikazivanje svih partnera je primljen!");
-  });
+router.get("/", vratiSvePartnere);
 
 // POST /partneri
 router.post("/", (req, res) => {
