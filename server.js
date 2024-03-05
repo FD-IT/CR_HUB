@@ -24,14 +24,6 @@ mongoose.connect(uri)
     console.log(err)
   }) 
 
-// ukljuceno u funkciji za povezivanje na DB
-// app.listen(3000);
-
-// app.get("/", (req, res) => {
-//   res.send("Dobrodosli na CR_Hub");
-//   console.log("Server je uspesno pokrenut!");
-// });
-
 const partneriRouter = require("./routes/partneri");
 
 app.use("/", partneriRouter);
