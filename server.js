@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 const app = express();
 // postavljen view engine, ukljuciti kada frontend isprati
-// app.set('view engine', 'ejs');
+app.set('view engine', 'ejs');
 
 //za koriscenje putanja
 app.use(express.urlencoded({extended: true}));
@@ -27,11 +27,11 @@ mongoose.connect(uri)
 // ukljuceno u funkciji za povezivanje na DB
 // app.listen(3000);
 
-app.get("/", (req, res) => {
-  res.send("Dobrodosli na CR_Hub");
-  console.log("Server je uspesno pokrenut!");
-});
+// app.get("/", (req, res) => {
+//   res.send("Dobrodosli na CR_Hub");
+//   console.log("Server je uspesno pokrenut!");
+// });
 
 const partneriRouter = require("./routes/partneri");
 
-app.use("/partneri",partneriRouter);
+app.use("/", partneriRouter);

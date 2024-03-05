@@ -1,20 +1,18 @@
 const Partner = require("../models/Partner");
-const mongoose = require("mongoose");
 
-//Vracanje svih partnera
-
+// vrati sve partnere
 const vratiSvePartnere = (req, res) => {
   Partner.find({})
     .sort({ createdAt: -1 })
     .then((partneri) => {
-      res.render("partneri", { title: "Svi partneri", partneri: partneri });
+      res.render("pocetna", { title: "Svi partneri", partneri: partneri });
     })
     .catch((err) => {
       console.log(err);
     });
 };
 
-// Brisanje partnera po ID-u
+// brisanje partnera po ID-u
 const obrisiPartnera = async (req, res) => {
   const partnerId = req.params.id;
 
@@ -41,16 +39,10 @@ const obrisiPartnera = async (req, res) => {
   }
 };
 
-module.exports = {
-  vratiSvePartnere,
-};
-
-//Kreirati funkciju koja vraca partnera sa datim ID-em iz baze
-const Partneri = require("../models/partneri");
-
-exports.getPartnerById = async (req, res, next) => {
+// vrati partnera sa datim ID
+const vratiPartneraSaID = async (req, res, next) => {
   try {
-    const partner = await Partneri.findById(req.params.id);
+    const partner = await Partner.findById(req.params.id);
     if (!partner) {
       return res.status(404).send("Partner nije pronadjen!");
     }
@@ -59,4 +51,22 @@ exports.getPartnerById = async (req, res, next) => {
     console.error("Greska prilikom pronalazenja partnera: ", error);
     res.status(500).send("Doslo je do greske prilikom obrade zahteva");
   }
+};
+
+// kreiraj novog partnera
+const kreirajNovogPartnera = (req, res) => {
+
+  console.log(req.body);
+  const partner = new Partner(req.body);
+  partner.save()
+  .then(result => {
+    res.redirect('/');
+  })
+    .catch(err => {
+      console.log(err);
+    });
+}
+
+module.exports = {
+  vratiSvePartnere, obrisiPartnera, vratiPartneraSaID, kreirajNovogPartnera,
 };

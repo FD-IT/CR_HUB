@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../public/css/pocetna.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul id="hederUl">
+                <li id="hederLi"><a id="hederTekst" href="/">Pocetna</a></li>
+                <li id="hederLi"><a id="hederTekst" href="/dodaj">Dodaj Partnera</a></li>
+            </ul>
+        </nav>
+    </header>
+
+<div style="display: flex; justify-content: space-between;">
+    <input type="text" class="search" placeholder="Pretraži kompaniju partnera"> 
+           <div style="display: flex;">
+            <button class="dugme">Filteri</button>
+            <button class="dugme">Korisnik12345</button>
+            <button class="dugme">:</button>
+       </div>
+</div>
+
+    <table>
+        <tbody>
+            <tbody>
+                <% if (partneri.length >= 0) { %>
+                <% partneri.forEach(partner => { %>
+                    <tr>
+                        <td class="naziv"><%= partner.naziv %></td>
+                        <td class="kontaktOsoba"><%= partner.kontaktOsoba %></td>
+                        <td class="kontaktMejl"><%= partner.kontaktMejl %></td>
+                        <td class="kontaktTelefon"><%= partner.kontaktTelefon %></td>
+                    </tr>
+                <% }) %>
+                <% } else { %>
+                    <p>Ne postoji ni jedan partner za prikazivanje</p>
+                <% } %>
+        </tbody>
+    </table>
+
+
+    
+
+</body>
+</html>
