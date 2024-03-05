@@ -56,7 +56,7 @@ const vratiPartneraSaID = async (req, res, next) => {
 // kreiraj novog partnera
 const kreirajNovogPartnera = (req, res) => {
 
-  console.log(req.body);
+  // console.log(req.body); korisceno za debuggovanje
   const partner = new Partner(req.body);
   partner.save()
   .then(result => {
