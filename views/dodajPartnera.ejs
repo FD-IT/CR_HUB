@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../public/css/pocetna.css">
+</head>
+<body>
+    
+    <header>
+        <nav>
+            <ul id="hederUl">
+                <li id="hederLi"><a id="hederTekst" href="/">Pocetna</a></li>
+                <li id="hederLi"><a id="hederTekst" href="/dodaj">Dodaj Partnera</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <br>
+    <form action="/dodaj" method="post">
+        <label>Ime kompanije:</label>
+        <input id="naziv" type="text" name="naziv" required>
+    
+        <br><br>
+    
+        <label>Kontakt osoba:</label>
+        <input id="kontaktOsoba" type="text" name="kontaktOsoba" required>
+        <br><br>
+
+        <label>Kontakt mejl:</label>
+        <input id="kontaktMejl" type="email" name="kontaktMejl" required>
+    
+        <br><br>
+        <label>Kontakt telefon:</label>
+        <input id="kontaktTelefon" type="number" name="kontaktTelefon" required>
+    
+        <br><br>
+    
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

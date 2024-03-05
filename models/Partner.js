@@ -2,16 +2,13 @@ const mongoose = require("mongoose");
 
 const partnerSchema = new mongoose.Schema({
     //Dodavanje polja
-    naziv: {
-        type : String,
-        required : true
-    },
+    naziv: String,
     kontaktOsoba : String,
     kontaktMejl : String,
-    kontaktTelefon: String
+    kontaktTelefon: Number
 
 })
 //Eksportovanje modela
-module.exports = mongoose.Model("Partner" , partnerSchema);
+module.exports = mongoose.model("Partner" , partnerSchema);
 
 
