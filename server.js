@@ -1,6 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 
+var path = require('path');
+
 const app = express();
 // postavljen view engine, ukljuciti kada frontend isprati
 app.set('view engine', 'ejs');
@@ -27,3 +29,4 @@ mongoose.connect(uri)
 const partneriRouter = require("./routes/partneri");
 
 app.use("/", partneriRouter);
+app.use(express.static(path.join(__dirname, 'public')));
