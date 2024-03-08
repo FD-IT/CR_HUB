@@ -11,6 +11,10 @@ router.get("/dodaj", (req, res) => {
   res.render('dodajPartnera')
 });
 
+router.get("/saradnja", (req, res) => {
+  res.render('dodajSaradnju')
+});
+
 // POST /dodaj
 router.post("/dodaj", partnerController.kreirajNovogPartnera);
 
