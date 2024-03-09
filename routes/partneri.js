@@ -1,5 +1,6 @@
 const express = require("express");
 const partnerController = require('../controller/partneri');
+const saradnjaController = require('../controller/saradnje');
 
 const router = express.Router();
 
@@ -15,8 +16,15 @@ router.get("/saradnja", (req, res) => {
   res.render('dodajSaradnju')
 });
 
+// GET  /saradnja 
+router.get("/saradnja", saradnjaController.dodavanjeSaradnje);
+
 // POST /dodaj
 router.post("/dodaj", partnerController.kreirajNovogPartnera);
+
+// POST /saradnja
+router.post("/saradnja", saradnjaController.dodajNovuSaradnju );
+
 
 // DELETE /partneri
 router.delete("/:id", partnerController.obrisiPartnera);
