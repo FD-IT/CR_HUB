@@ -1,3 +1,5 @@
+const Saradnja = require("../models/Saradnje");
+
 //kreiraj novu saradnju
 const dodajNovuSaradnju = (req, res) => {
     const saradnja = new Saradnja({
@@ -16,7 +18,6 @@ const dodajNovuSaradnju = (req, res) => {
       });
   };
 
-  const Saradnja = require("../models/Saradnje");
 
 // Funkcija koja dodaje novi komentar u datu saradnju
 const dodajKomentar = async (req, res) => {
