@@ -1,5 +1,3 @@
-const Saradnja = require("../models/Saradnje");
-
 //kreiraj novu saradnju
 const dodajNovuSaradnju = (req, res) => {
     const saradnja = new Saradnja({
