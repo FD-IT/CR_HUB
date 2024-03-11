@@ -1,4 +1,5 @@
 const Saradnja = require("../models/Saradnje");
+const Partner = require("../models/Partner");
 
 //kreiraj novu saradnju
 const dodajNovuSaradnju = (req, res) => {
@@ -18,8 +19,19 @@ const dodajNovuSaradnju = (req, res) => {
       });
   };
 
-
+// Prikazuje stranicu za dodavanje saradnje i vraća sve partnere
+const prikaziDodajSaradnju = async (req, res) => {
+  try {
+      res.render("dodajSaradnju");
+      const partneri = await Partner.find({});
+      res.send(partneri);
+  } catch (error) {
+      console.error("Greška", error);
+      res.status(500).send("Došlo je do greške prilikom prikazivanja stranice za dodavanje saradnje.");
+  }
+};
 
 module.exports = {
-    dodajNovuSaradnju
+    dodajNovuSaradnju,
+    prikaziDodajSaradnju
 }
