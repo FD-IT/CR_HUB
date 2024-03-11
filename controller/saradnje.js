@@ -22,9 +22,8 @@ const dodajNovuSaradnju = (req, res) => {
 // Prikazuje stranicu za dodavanje saradnje i vraća sve partnere
 const prikaziDodajSaradnju = async (req, res) => {
   try {
-      res.render("dodajSaradnju");
       const partneri = await Partner.find({});
-      res.send(partneri);
+      res.render("dodajSaradnju", { partneri: partneri })
   } catch (error) {
       console.error("Greška", error);
       res.status(500).send("Došlo je do greške prilikom prikazivanja stranice za dodavanje saradnje.");
