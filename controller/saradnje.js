@@ -18,8 +18,6 @@ const dodajNovuSaradnju = (req, res) => {
       });
   };
 
-  const Saradnja = require("../models/Saradnje");
-
 // Funkcija koja dodaje novi komentar u datu saradnju
 const dodajKomentar = async (req, res) => {
     const { id } = req.params; // ID saradnje
@@ -43,8 +41,31 @@ const dodajKomentar = async (req, res) => {
     }
 };
 
+// Funkcija koja menja status saradnje
+const promeniStatus = async (req, res) => {
+  try {
+      const { id } = req.params; // ID saradnje
+      const { noviStatus } = req.body; // Novi status saradnje koji dolazi iz zahteva
+
+      // Pronalazak saradnje po ID-u
+      const saradnja = await Saradnja.findById(id);
+
+      // Promena statusa
+      saradnja.status = noviStatus;
+
+      // Čuvanje izmena u bazi podataka
+      await saradnja.save();
+
+      // Slanje uspešnog odgovora
+      res.status(200).json({ message: 'Status saradnje uspešno promenjen.', saradnja: saradnja });
+  } catch (error) {
+      console.error("Greška pri promeni statusa saradnje:", error);
+      res.status(500).json({ error: "Došlo je do greške prilikom promene statusa saradnje." });
+  }
+};
 
 module.exports = {
     dodajNovuSaradnju,
-    dodajKomentar
+    dodajKomentar,
+    promeniStatus
 }
