@@ -1,4 +1,5 @@
 const Saradnja = require("../models/Saradnje");
+const Partner = require("../models/Partner");
 
 //kreiraj novu saradnju
 const dodajNovuSaradnju = (req, res) => {
