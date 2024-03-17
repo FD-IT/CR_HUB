@@ -32,25 +32,25 @@
             <div class="col">
                 <input class="placeholder" id="nazivProjekta" type="text" name="nazivProjekta" required>
                 <select name="tipSaradnje" id="tipSaradnje" required>
-                    <option value="">Saradnja 1</option>
-                    <option value="">Saradnja 2</option>
-                    <option value="">Saradnja 3</option>
-                    <option value="">Saradnja 4</option>
+                    <option value="Saradnja 1">Saradnja 1</option>
+                    <option value="Saradnja 2">Saradnja 2</option>
+                    <option value="Saradnja 3">Saradnja 3</option>
+                    <option value="Saradnja 4">Saradnja 4</option>
                 </select>
-                <select id="partner" name="partner" required>
+                <select name="partner" id="partner" required>
+                    <option value=""></option>
+                    <% if (partneri.length >= 0) { %>
                     <% partneri.forEach(partner => { %>
                         <option value="<%= partner._id %>"><%= partner.naziv %></option>
-                    <% }); %>
+                    <% }) %>
+                    <% } else { %>
+                        <option value="" disabled selected>Ne postoji ni jedan partner za prikazivanje</option>
+                    <% } %>
                 </select>
                 <textarea class="komentar" id="komentar" name="komentar" rows="8" cols="60" placeholder="Dodaj komentar"></textarea>
                 <input class="btn" type="submit" value="DODAJ">
             </div>
-            
-
-
-
-
-            
+          
         </form>
     </div>
 
