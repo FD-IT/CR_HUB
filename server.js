@@ -27,6 +27,8 @@ mongoose.connect(uri)
   }) 
 
 const partneriRouter = require("./routes/partneri");
+const saradnjeRouter = require("./routes/saradnje");
 
 app.use("/", partneriRouter);
+app.use("/", saradnjeRouter);
 app.use(express.static(path.join(__dirname, 'public')));

@@ -12,25 +12,14 @@ router.get("/dodaj", (req, res) => {
   res.render('dodajPartnera')
 });
 
-router.get("/saradnja", (req, res) => {
-  res.render('dodajSaradnju')
-});
-
-// GET  /saradnja 
-router.get("/saradnja", saradnjaController.dodavanjeSaradnje);
-
 // POST /dodaj
 router.post("/dodaj", partnerController.kreirajNovogPartnera);
 
-// POST /saradnja
-router.post("/saradnja", saradnjaController.dodajNovuSaradnju );
-
-
 // DELETE /partneri
-router.delete("/:id", partnerController.obrisiPartnera);
+router.delete("/partneri:id", partnerController.obrisiPartnera);
 
 // GET partner by ID
-router.get("/:id", partnerController.vratiPartneraSaID)
+router.get("/partneri:id", partnerController.vratiPartneraSaID)
 
 // PATCH /:id
 router.patch("/:id", (req, res) => {

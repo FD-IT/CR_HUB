@@ -4,15 +4,15 @@ const mongoose = require("mongoose");
 const SaradnjaSchema = new mongoose.Schema({
   naziv: {
     type: String,
-    required: true,
+    // required: true,
   },
   tip_saradnje: {
     type: String,
-    required: true,
+    // required: true,
   },
   status: {
     type: String,
-    required: true,
+    // required: true,
   },
   komentari: {
     type: [String],

@@ -14,33 +14,42 @@
             <ul id="hederUl">
                 <li id="hederLi"><a id="hederTekst" href="/">Pocetna</a></li>
                 <li id="hederLi"><a id="hederTekst" href="/dodaj">Dodaj Partnera</a></li>
-                <li id="hederLi"><a id="hederTekst" href="/saradnja">Dodaj Saradnju</a></li>
+                <li id="hederLi"><a id="hederTekst" href="/saradnje">Dodaj Saradnju</a></li>
             </ul>
         </nav>
     </header>
 
     <div class="container">
         <h1>DODAJ SARADNJU</h1>
-        <form class="forma" action="/saradnja" method="post">
+        <form class="forma" action="/saradnje" method="post">
             <div class="col">
-                <label>Naziv projekta:</label>               
-                <label>Partner:</label>
+                <label>Naziv projekta:</label>     
                 <label>Tip saradnje:</label>
+                <label for="partner">Partner:</label>
                 <label>Komentar:</label>
             </div>
             
             <div class="col">
                 <input class="placeholder" id="nazivProjekta" type="text" name="nazivProjekta" required>
-                <input class="search" id="partner" type="search" name="partner" placeholder="search" required>
                 <select name="tipSaradnje" id="tipSaradnje" required>
                     <option value="">Saradnja 1</option>
                     <option value="">Saradnja 2</option>
                     <option value="">Saradnja 3</option>
                     <option value="">Saradnja 4</option>
                 </select>
+                <select id="partner" name="partner" required>
+                    <% partneri.forEach(partner => { %>
+                        <option value="<%= partner._id %>"><%= partner.naziv %></option>
+                    <% }); %>
+                </select>
                 <textarea class="komentar" id="komentar" name="komentar" rows="8" cols="60" placeholder="Dodaj komentar"></textarea>
                 <input class="btn" type="submit" value="DODAJ">
             </div>
+            
+
+
+
+
             
         </form>
     </div>

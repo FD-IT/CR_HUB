@@ -65,8 +65,20 @@ const promeniStatus = async (req, res) => {
   }
 };
 
+const getDodajNovuSaradnju = (req, res) => {
+  Partner.find({})
+    .sort({ createdAt: -1 })
+    .then((partneri) => {
+      res.render("dodajSaradnju", { title: "Svi partneri", partneri: partneri });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
 module.exports = {
     dodajNovuSaradnju,
     dodajKomentar,
-    promeniStatus
+    promeniStatus,
+    getDodajNovuSaradnju
 }
